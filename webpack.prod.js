@@ -31,7 +31,7 @@ module.exports = merge(common, {
       cacheGroups: {
         react: {
           name: 'react',
-          test: /[\\/]node_modules[\\/]react|redux|prop-types[\\/]/,
+          test: /[\\/]node_modules[\\/]react|prop-types[\\/]/,
           chunks: 'all',
           priority: 10,
           enforce: true
