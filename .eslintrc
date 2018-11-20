@@ -1,44 +1,31 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended"
+  ],
   "env": {
-    "browser": true
-  },
-  "rules": {
-    "arrow-body-style": ["warn", "as-needed"],
-    "comma-dangle": ["warn", "never"],
-    "consistent-return": "warn",
-    "import/no-extraneous-dependencies": ["warn", { "devDependencies": true }],
-    "import/prefer-default-export": "warn",
-    "max-len": ["warn", 120],
-    "no-else-return": "off",
-    "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
-    "no-param-reassign": "warn",
-    "no-restricted-syntax": "warn",
-    "no-unused-vars": "warn",
-    "prefer-template": "off",
-    "prefer-const": "off",
-    "prefer-stateless-function": "off",
-    "quote-props": ["error", "consistent-as-needed"],
-    "react/jsx-no-bind": [0],
-    "react/prefer-stateless-function": "off",
-    "react/require-extension": "off",
-    "react/self-closing-comp": "warn"
-  },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
-    }
+    "browser": true,
+    "node": true
   },
   "settings": {
+    "react": {
+      "version": "16.0"
+    },
     "import/resolver": {
-      "webpack": {
-        "config": "webpack.common.js"
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx"]
       }
     }
   },
-  "plugins": [
-    "react"
-  ]
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  }
 }
