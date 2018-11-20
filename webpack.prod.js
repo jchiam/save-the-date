@@ -22,6 +22,15 @@ module.exports = merge(common, {
           fallback: 'style-loader',
           use: ['css-loader', 'postcss-loader', 'sass-loader', 'import-glob-loader']
         })
+      },
+      {
+        test: /\.(gif|png|jpg|jpeg|eot)(\?[a-z0-9]+)?$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: 'assets/[name]-[hash].[ext]'
+          }
+        }
       }
     ]
   },
