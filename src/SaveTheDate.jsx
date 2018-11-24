@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Slideshow from 'react-slidez';
+import cloudinary from 'cloudinary-core';
+  
+const cloudinaryCore = new cloudinary.Cloudinary({ cloud_name: process.env.CLOUDINARY_CLOUD_NAME });
 
 export default class SaveTheDate extends Component {
   static renderSlideshow() {
@@ -12,7 +15,10 @@ export default class SaveTheDate extends Component {
         useDotIndex
         slideInterval={8000}
         defaultIndex={0}
-        slides={[require('images/1.png'), require('images/2.png')]}
+        slides={[
+          cloudinaryCore.url('save-the-date/wedding1.png'),
+          cloudinaryCore.url('save-the-date/wedding2.png')
+        ]}
         effect={'fade'}
       />
     );
