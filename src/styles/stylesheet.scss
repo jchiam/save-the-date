@@ -1,8 +1,20 @@
-$bg-color: #fff;
-$primary-color: #000;
-$secondary-color: #d3d3d3;
+$primary-color: #ffe4f7;
+$primary-color-dark: #ffb1e8;
+$primary-font-color: #ff65d1;
+$primary-color-translucent: rgba(255, 228, 247, .8);
+
+$shadow: #808080;
+
+@import 'src/styles/slideshow';
+
+html,
+body {
+  background: $primary-color !important;
+}
 
 html {
+  color: $primary-font-color;
+
   h1 {
     font-family: 'Allura', cursive;
   }
@@ -12,10 +24,6 @@ html {
   div {
     font-family: 'Open Sans', sans-serif;
   }
-}
-
-body {
-  margin: 0 8px;
 }
 
 .root {
@@ -28,46 +36,40 @@ body {
 h1 {
   position: absolute;
   top: 0;
+  z-index: 100;
   margin: 0;
+  color: $primary-color-dark;
   font-size: 120px;
-}
-
-img {
-  margin: 0 auto;
-  height: 100vh;
-}
-
-.details-container {
-  display: flex;
-  position: absolute;
-  bottom: 0;
-  justify-content: center;
-  background-color: $bg-color;
-  width: 100vw;
-  height: 30%;
 }
 
 .details {
   display: flex;
+  position: absolute;
+  bottom: 0;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  z-index: 100;
   margin-top: -20px;
   margin-bottom: 20px;
-  border: 5px solid $primary-color;
-  border-radius: 5px;
-  padding: 20px 200px;
-  font-size: 48px;
+  border-radius: 10px;
+  background-color: $primary-color-translucent;
+  width: 70vw;
+  height: 30%;
+  font-size: 36px;
 }
 
 button {
   margin-top: 20px;
-  border: 2px solid $primary-color;
   border-radius: 16px;
+  background-color: $primary-color;
   padding: 10px 20px;
-  font-size: 48px;
+  color: $primary-font-color;
+  font-size: 36px;
 
   &:hover {
-    background-color: $secondary-color;
+    transition: box-shadow .2s, color .2s;
+    box-shadow: 5px 5px $shadow;
     cursor: pointer;
   }
 }
