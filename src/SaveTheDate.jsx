@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
 import Slideshow from 'react-slidez';
 import cloudinary from 'cloudinary-core';
+import differenceInDays from 'date-fns/difference_in_days';
   
 const cloudinaryCore = new cloudinary.Cloudinary({ cloud_name: process.env.CLOUDINARY_CLOUD_NAME });
 
 export default class SaveTheDate extends Component {
+  static renderHeader() {
+    return (
+      <div className="header">
+        <h1>Save The Date</h1>
+        <h2>{'6 \u00b7 4 \u00b7 2019'}</h2>
+      </div>
+    )
+  }
+
   static renderDetails() {
+    const numDays = differenceInDays(
+      new Date(2019, 3, 6),   // month is index based
+      new Date()
+    );
     return (
       <div className="details">
         <span>Rebecca + Jonathan</span>
-        <span>April 6, 2019</span>
+        <span>{numDays} days to #BeccammingAChiam</span>
         <button>RSVP Here</button>
       </div>
     );
@@ -18,7 +32,7 @@ export default class SaveTheDate extends Component {
   renderSlideshow() {
     const tr = cloudinary.Transformation.new();
     tr
-      .dpr(2).quality(30).height(window.innerheight).width(window.innerWidth).crop('fill').gravity('faces').chain()
+      .dpr(2).quality(70).height(window.innerheight).width(window.innerWidth).crop('fill').gravity('faces').chain()
       .effect('gradient_fade:symmetric').x(0.1).background('rgb:ffe4f7');   // primary color as background
     return (
       <Slideshow
@@ -42,7 +56,7 @@ export default class SaveTheDate extends Component {
   render() {
     return (
       <>
-        <h1>Save The Date</h1>
+        {SaveTheDate.renderHeader()}
         {this.renderSlideshow()}
         {SaveTheDate.renderDetails()}
       </>
