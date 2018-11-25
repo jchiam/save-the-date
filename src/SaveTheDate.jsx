@@ -15,34 +15,10 @@ export default class SaveTheDate extends Component {
     );
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      windowHeight: window.innerHeight,
-      windowWidth: window.innerWidth
-    };
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize());
-  }
-
-  handleResize() {
-    this.setState({
-      windowHeight: window.innerHeight,
-      windowWidth: window.innerWidth
-    });
-  }
-
   renderSlideshow() {
-    const { windowHeight, windowWidth } = this.state;
     const tr = cloudinary.Transformation.new();
     tr
-      .dpr(2).quality(30).height(windowHeight).width(windowWidth).crop('fill').gravity('faces').chain()
+      .dpr(2).quality(30).height(window.innerheight).width(window.innerWidth).crop('fill').gravity('faces').chain()
       .effect('gradient_fade:symmetric').x(0.1).background('rgb:ffe4f7');   // primary color as background
     return (
       <Slideshow
@@ -54,7 +30,6 @@ export default class SaveTheDate extends Component {
         slideInterval={8000}
         defaultIndex={0}
         slides={[
-          cloudinaryCore.url('save-the-date/wedding1.jpg', tr),
           cloudinaryCore.url('save-the-date/wedding2.jpg', tr),
           cloudinaryCore.url('save-the-date/wedding3.jpg', tr),
           cloudinaryCore.url('save-the-date/wedding4.jpg', tr)
