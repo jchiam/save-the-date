@@ -40,12 +40,10 @@ export default class SaveTheDate extends Component {
 
   renderSlideshow() {
     const { windowHeight, windowWidth } = this.state;
-    const transformations = {
-      height: windowHeight,
-      width: windowWidth,
-      crop: 'fill',
-      gravity: 'faces'
-    };
+    const tr = cloudinary.Transformation.new();
+    tr
+      .height(windowHeight).width(windowWidth).crop('fill').gravity('faces').chain()
+      .effect('gradient_fade:symmetric').x(0.1).background('rgb:ffe4f7');   // primary color as background
     return (
       <Slideshow
         showIndex={false}
@@ -56,8 +54,10 @@ export default class SaveTheDate extends Component {
         slideInterval={8000}
         defaultIndex={0}
         slides={[
-          cloudinaryCore.url('save-the-date/wedding1.png', transformations),
-          cloudinaryCore.url('save-the-date/wedding2.png', transformations)
+          cloudinaryCore.url('save-the-date/wedding1.jpg', tr),
+          cloudinaryCore.url('save-the-date/wedding2.jpg', tr),
+          cloudinaryCore.url('save-the-date/wedding3.jpg', tr),
+          cloudinaryCore.url('save-the-date/wedding4.jpg', tr)
         ]}
         effect={'fade'}
       />
