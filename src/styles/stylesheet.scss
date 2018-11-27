@@ -35,24 +35,15 @@ html {
 h1 {
   margin: 0;
   color: $primary-font-color;
-  font-size: 120px;
+  font-size: 60px;
 }
 
 h2 {
   margin: 0;
+  margin-top: -10px;
   text-align: center;
   color: $primary-font-color;
-}
-
-@mixin headers--landscape {
-  h1 {
-    font-size: 60px;
-  }
-
-  h2 {
-    margin-top: -10px;
-    font-size: 32px;
-  }
+  font-size: 32px;
 }
 
 @mixin headers--mobile {
@@ -77,13 +68,7 @@ h2 {
   background-color: $primary-color-translucent;
   width: 70vw;
   height: 30%;
-  font-size: 36px;
-}
-
-@mixin details--landscape {
-  .details {
-    font-size: 32px;
-  }
+  font-size: 32px;
 }
 
 @mixin details--mobile {
@@ -93,22 +78,17 @@ h2 {
 }
 
 button {
+  border: 0;
   border-radius: 16px;
   background-color: $primary-color;
   padding: 10px 20px;
   color: $primary-font-color;
-  font-size: 36px;
+  font-size: 32px;
 
   &:hover {
     transition: box-shadow .2s, color .2s;
     box-shadow: 5px 5px $shadow;
     cursor: pointer;
-  }
-}
-
-@mixin button--landscape {
-  button {
-    font-size: 32px;
   }
 }
 
@@ -118,15 +98,8 @@ button {
   }
 }
 
-// small screens
-@media only screen and (min-width: 1000px) {
-  @include headers--landscape;
-  @include details--landscape;
-  @include button--landscape;
-}
-
 // mobile
-@media only screen and (max-aspect-ratio: 9 / 16) {
+@media only screen and (max-device-aspect-ratio: 9 / 16) and (orientation: portrait) {
   @include headers--mobile;
   @include details--mobile;
   @include button--mobile;
