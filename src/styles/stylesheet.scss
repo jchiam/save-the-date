@@ -1,5 +1,4 @@
 $primary-color: #ffe4f7;
-$primary-color-dark: #ffb1e8;
 $primary-font-color: #ff65d1;
 $primary-color-translucent: rgba(255, 228, 247, .8);
 
@@ -33,34 +32,47 @@ html {
   height: 100%;
 }
 
-.header {
-  position: absolute;
-  top: 0;
-  z-index: 100;
-}
-
 h1 {
   margin: 0;
-  color: $primary-color-dark;
+  color: $primary-font-color;
   font-size: 120px;
 }
 
 h2 {
   margin: 0;
-  color: $primary-color-dark;
   text-align: center;
+  color: $primary-font-color;
+}
+
+@mixin headers--landscape {
+  h1 {
+    font-size: 60px;
+  }
+
+  h2 {
+    margin-top: -10px;
+    font-size: 32px;
+  }
+}
+
+@mixin headers--mobile {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
 }
 
 .details {
   display: flex;
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   z-index: 100;
-  margin-top: -20px;
-  margin-bottom: 20px;
   border-radius: 10px;
   background-color: $primary-color-translucent;
   width: 70vw;
@@ -68,8 +80,19 @@ h2 {
   font-size: 36px;
 }
 
+@mixin details--landscape {
+  .details {
+    font-size: 32px;
+  }
+}
+
+@mixin details--mobile {
+  .details {
+    font-size: 24px;
+  }
+}
+
 button {
-  margin-top: 20px;
   border-radius: 16px;
   background-color: $primary-color;
   padding: 10px 20px;
@@ -81,4 +104,30 @@ button {
     box-shadow: 5px 5px $shadow;
     cursor: pointer;
   }
+}
+
+@mixin button--landscape {
+  button {
+    font-size: 32px;
+  }
+}
+
+@mixin button--mobile {
+  button {
+    font-size: 24px;
+  }
+}
+
+// small screens
+@media only screen and (min-width: 1000px) {
+  @include headers--landscape;
+  @include details--landscape;
+  @include button--landscape;
+}
+
+// mobile
+@media only screen and (max-aspect-ratio: 9 / 16) {
+  @include headers--mobile;
+  @include details--mobile;
+  @include button--mobile;
 }

@@ -1,29 +1,16 @@
 import React, { Component } from 'react';
 import Slideshow from 'react-slidez';
 import cloudinary from 'cloudinary-core';
-import differenceInDays from 'date-fns/difference_in_days';
   
 const cloudinaryCore = new cloudinary.Cloudinary({ cloud_name: process.env.CLOUDINARY_CLOUD_NAME });
 
 export default class SaveTheDate extends Component {
-  static renderHeader() {
-    return (
-      <div className="header">
-        <h1>Save The Date</h1>
-        <h2>{'6 \u00b7 4 \u00b7 2019'}</h2>
-      </div>
-    )
-  }
-
   static renderDetails() {
-    const numDays = differenceInDays(
-      new Date(2019, 3, 6),   // month is index based
-      new Date()
-    );
     return (
       <div className="details">
+        <h1>Save The Date</h1>
+        <h2>{'6 \u00b7 4 \u00b7 2019'}</h2>
         <span>Rebecca + Jonathan</span>
-        <span>{numDays} days to #BeccammingAChiam</span>
         <button>RSVP Here</button>
       </div>
     );
@@ -56,7 +43,6 @@ export default class SaveTheDate extends Component {
   render() {
     return (
       <>
-        {SaveTheDate.renderHeader()}
         {this.renderSlideshow()}
         {SaveTheDate.renderDetails()}
       </>
