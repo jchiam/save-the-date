@@ -9,7 +9,7 @@ export default class SaveTheDate extends Component {
     return (
       <div className="details">
         <h1>Save The Date</h1>
-        <h2>{'6 \u00b7 4 \u00b7 2019'}</h2>
+        <h2>{'6 \u00b7 4 \u00b7 19'}</h2>
         <span>Rebecca + Jonathan</span>
         <button>RSVP Here</button>
       </div>
