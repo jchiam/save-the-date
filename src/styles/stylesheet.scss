@@ -43,7 +43,7 @@ h2 {
   margin-top: -10px;
   text-align: center;
   color: $primary-font-color;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 @mixin headers--mobile {
@@ -52,7 +52,7 @@ h2 {
   }
 
   h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 
@@ -66,24 +66,25 @@ h2 {
   z-index: 100;
   border-radius: 10px;
   background-color: $primary-color-translucent;
+  padding: 5px;
   width: 70vw;
   height: 30%;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 @mixin details--mobile {
   .details {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
 button {
   border: 0;
-  border-radius: 16px;
+  border-radius: 10px;
   background-color: $primary-color;
-  padding: 10px 20px;
+  padding: 5px 10px;
   color: $primary-font-color;
-  font-size: 32px;
+  font-size: 24px;
 
   &:hover {
     transition: box-shadow .2s, color .2s;
@@ -94,7 +95,7 @@ button {
 
 @mixin button--mobile {
   button {
-    font-size: 24px;
+    font-size: 16px;
   }
 }
 
