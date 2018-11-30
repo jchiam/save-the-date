@@ -19,7 +19,7 @@ export default class SaveTheDate extends Component {
   renderSlideshow() {
     const tr = cloudinary.Transformation.new();
     tr
-      .dpr(2).quality(70).height(window.innerheight).width(window.innerWidth).crop('fill').gravity('faces').chain()
+      .dpr(2).height(window.innerheight).width(window.innerWidth).crop('fill').gravity('faces').chain()
       .effect('gradient_fade:symmetric').x(0.1).background('rgb:ffe4f7');   // primary color as background
     return (
       <Slideshow
