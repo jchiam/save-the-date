@@ -2,9 +2,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router } from 'react-router';
+import { createBrowserHistory } from 'history';
 import { AppContainer } from 'react-hot-loader';
 
-import SaveTheDate from 'SaveTheDate';
+import routes from 'routes';
 
 import 'styles/stylesheet.scss';
 
@@ -12,11 +14,14 @@ import 'styles/stylesheet.scss';
 const isProduction = process.env.NODE_ENV === 'production';
 
 if (isProduction || !!module.hot) {
-  ReactDOM.render(<SaveTheDate />, document.getElementById('root'));
+  ReactDOM.render(
+    <Router children={routes} history={createBrowserHistory()} />,
+    document.getElementById('root'
+  ));
 } else {
   ReactDOM.render(
     <AppContainer>
-      <SaveTheDate />
+      <Router children={routes} history={createBrowserHistory()} key={Math.random()} />
     </AppContainer>,
     document.getElementById('root')
   );
