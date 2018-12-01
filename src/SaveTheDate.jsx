@@ -6,12 +6,23 @@ const cloudinaryCore = new cloudinary.Cloudinary({ cloud_name: process.env.CLOUD
 
 export default class SaveTheDate extends Component {
   static renderDetails() {
+    const path = document.location.pathname;
     return (
       <div className="details">
         <h1>Save The Date</h1>
         <h2>{'6 \u00b7 4 \u00b7 19'}</h2>
         <span>Jonathan + Rebecca</span>
-        <button>RSVP Here</button>
+        <button
+          onClick={() => {
+            if (path === '/solemnisation') {
+              window.location.assign(process.env.SOLEMNISATION_GDOCS_URL);
+            } else if (path === '/solemnisation-banquet') {
+              window.location.assign(process.env.SOLEMNISATION_BANQUET_GDOCS_URL);
+            }
+          }}
+        >
+          RSVP Here
+        </button>
       </div>
     );
   }
