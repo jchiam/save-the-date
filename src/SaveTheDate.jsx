@@ -39,7 +39,7 @@ export default class SaveTheDate extends Component {
         autoplay
         enableKeyboard={false}
         useDotIndex
-        slideInterval={8000}
+        slideInterval={5000}
         defaultIndex={0}
         slides={[
           cloudinaryCore.url('save-the-date/wedding2.jpg', tr),
